@@ -1,21 +1,3 @@
-//////////////////////////////////////////////////////////////////////////
-// License
-//
-// SQLiteCodecWrapper.
-// jun jin pyo.
-//
-// http://greenfishblog.tistory.com/134
-//
-// This source code is under CC license.(http://creativecommons.org/licenses/)
-// And any change of this source code is NOT permitted.
-// BY-NC-ND was applied.
-//
-// 1. Redistributions of source code must retain the above copywrite notice with
-//    no modification.
-//
-// 2. The use of this is non-commercial.
-//
-//////////////////////////////////////////////////////////////////////////
 
 // build when SQLITE_HAS_CODEC was defined
 #ifdef SQLITE_HAS_CODEC
@@ -23,7 +5,7 @@
 #include "codec.h"
 #include <assert.h>
 //////////////////////////////////////////////////////////////////////////
-// reference function in caller (¿ÜºÎ¿¡¼­ Á¤ÀÇÇÏ½Ã¿À)
+// reference function in caller (ì™¸ë¶€ì—ì„œ ì •ì˜í•˜ì‹œì˜¤)
 extern HANDLE_CODEC SQLiteCodecInit(IN_PARAM const void* pKey, IN_PARAM int nCbKey, OUT_OPTINAL_PARAM unsigned int* punCbBlockSize);
 extern void  SQLiteCodecDeInit(IN_PARAM HANDLE_CODEC hHandle);
 extern int SQLiteCodecEncode(IN_PARAM HANDLE_CODEC hHandle, IN_PARAM void* pSource, IN_PARAM int nCbSource, OUT_PARAM void* pDest, IN_PARAM int nCbDestBufSize, OUT_PARAM int* pnCbDest);
@@ -372,7 +354,7 @@ static void* CodecInternal(void* ctx, void* data, Pgno pgNo, int mode)
 									   pstContext->nBufferSize, 
 									   &nCbBuffer))
 			{
-				// ÀÌ°÷¿¡¼­ NULLÀÌ Àü´ŞµÇ¸é, sql statement ½ÇÇàÀº ½ÇÆĞµÈ´Ù.
+				// ì´ê³³ì—ì„œ NULLì´ ì „ë‹¬ë˜ë©´, sql statement ì‹¤í–‰ì€ ì‹¤íŒ¨ëœë‹¤.
 				assert(FALSE);
 				goto FINAL;
 			}
